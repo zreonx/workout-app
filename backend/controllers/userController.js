@@ -1,5 +1,12 @@
 const User = require("../model/user");
 const jwt = require("jsonwebtoken");
+const Workout = require("../model/workout");
+
+const getAllWorkouts = async (req, res) => {
+  // const user_id = req.user._id;
+  const workouts = await Workout.find({}).sort({ createdAt: -1 });
+  res.status(200).json(workouts);
+};
 
 const createToken = (_id) => {
   return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "3d" });
@@ -40,4 +47,5 @@ const signupUser = async (req, res) => {
 module.exports = {
   loginUser,
   signupUser,
+  getAllWorkouts
 };
