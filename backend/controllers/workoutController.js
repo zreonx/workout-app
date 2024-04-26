@@ -9,7 +9,7 @@ const getWorkouts = async (req, res) => {
 };
 
 const getAllWorkouts = async (req, res) => {
-  const user_id = req.user._id;
+  // const user_id = req.user._id;
   const workouts = await Workout.find({}).sort({ createdAt: -1 });
   res.status(200).json(workouts);
 };

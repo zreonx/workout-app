@@ -2,7 +2,8 @@ const jwt = require("jsonwebtoken");
 const User = require("../model/user");
 
 const authentication = async (req, res, next) => {
-  if (req.path.startsWith('/allworkouts')) {
+
+  if (req.path.startsWith('/api/workouts/allworkouts')) {
     return next(); // Skip to the next middleware/route
   }
 
