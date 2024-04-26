@@ -2,6 +2,11 @@ const jwt = require("jsonwebtoken");
 const User = require("../model/user");
 
 const authentication = async (req, res, next) => {
+  if (req.path.startsWith('/allworkouts')) {
+    return next(); // Skip to the next middleware/route
+  }
+
+
   //verify authentication
   const { authorization } = req.headers;
 
