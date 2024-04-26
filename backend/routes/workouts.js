@@ -10,7 +10,7 @@ const {
 
 const router = express.Router();
 
-router.use(authentication);
+// router.use(authentication);
 
 //require for all workout routes
 router.get("/", getWorkouts);
