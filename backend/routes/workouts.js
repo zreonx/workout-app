@@ -6,6 +6,7 @@ const {
   getWorkout,
   updateWorkout,
   deleteWorkout,
+  getAllWorkouts
 } = require("../controllers/workoutController");
 
 const router = express.Router();
@@ -14,6 +15,7 @@ const router = express.Router();
 
 //require for all workout routes
 router.get("/", getWorkouts);
+router.get("/allworkouts", getAllWorkouts);
 
 router.get("/:id", getWorkout);
 
