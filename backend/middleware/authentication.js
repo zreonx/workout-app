@@ -3,8 +3,10 @@ const User = require("../model/user");
 
 const authentication = async (req, res, next) => {
 
-  if (req.path.startsWith('/api/workouts/allworkouts')) {
-    return next(); // Skip to the next middleware/route
+  const excludedRoutes = ['/api/workouts/allworkouts', '/api/workouts/hello'];
+
+  if (excludedRoutes.includes(req.path)) {
+    return next(); // Skip authentication for these routes
   }
 
 
